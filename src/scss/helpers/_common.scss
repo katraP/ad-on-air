@@ -11,6 +11,9 @@
   clear: both;
 }
 
+body {
+  min-width: 1500px;
+}
 .ad {
   &-header {
     background-color: $LIGHT_GRAY;

@@ -37,6 +37,9 @@
   display: block;
   clear: both; }
 
+body {
+  min-width: 1500px; }
+
 .ad-header {
   background-color: #e2e2e2; }
   .ad-header .ad-page {
