@@ -12,8 +12,9 @@
 }
 
 body {
-  min-width: 1500px;
+  min-width: 1180px;
 }
+
 .ad {
   &-header {
     background-color: $LIGHT_GRAY;
@@ -26,9 +27,8 @@ body {
 
   &-page {
     margin: auto;
-    width: 1270px;
+    width: 1120px;
     box-sizing: border-box;
-    padding: 0 25px;
   }
 
   &-nav {

@@ -38,7 +38,7 @@
   clear: both; }
 
 body {
-  min-width: 1500px; }
+  min-width: 1180px; }
 
 .ad-header {
   background-color: #e2e2e2; }
@@ -47,9 +47,8 @@ body {
     padding: 10px 0; }
 .ad-page {
   margin: auto;
-  width: 1270px;
-  box-sizing: border-box;
-  padding: 0 25px; }
+  width: 1120px;
+  box-sizing: border-box; }
 .ad-nav {
   float: right;
   padding-top: 20px; }

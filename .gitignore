@@ -1,7 +1,4 @@
 .idea/
 .gulp-scss-cache/
 .sass-cache/
-src/
-gulpfile.js
-package.json
 node_modules/
