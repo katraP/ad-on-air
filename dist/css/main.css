@@ -75,22 +75,34 @@ body {
     display: none; }
   .ad-header .ad-page {
     border-bottom: 2px solid #493292;
-    padding: 10px 0;
     height: 80px; }
+.ad-logo {
+  padding-top: 10px;
+  display: inline-block; }
 .ad-page {
   margin: auto;
   width: 1120px;
   box-sizing: border-box; }
 .ad-nav {
   float: right;
-  padding-top: 20px;
-  transition: padding .5s; }
+  height: 100%; }
+  .ad-nav ul {
+    height: 100%; }
   .ad-nav__item {
     display: inline-block;
     margin-left: 55px;
+    box-sizing: border-box;
+    height: 100%; }
+  .ad-nav__link {
+    text-decoration: none;
+    color: #474747;
+    font: 14px "montserratregular";
+    display: block;
+    height: 100%;
+    padding-top: 25px;
     position: relative;
-    height: 20px; }
-    .ad-nav__item:after {
+    box-sizing: border-box; }
+    .ad-nav__link:after {
       content: '';
       display: block;
       transition: opacity .5s;
@@ -98,18 +110,13 @@ body {
       width: 100%;
       height: 4px;
       bottom: 0;
-      margin-bottom: -28px;
       left: 0;
       background-color: #3dc5ec;
       opacity: 0; }
-    .ad-nav__item.active .ad-nav__link {
+    .ad-nav__link.active {
       color: #3dc5ec; }
-    .ad-nav__item:hover:after {
+    .ad-nav__link:hover:after {
       opacity: 1; }
-  .ad-nav__link {
-    text-decoration: none;
-    color: #474747;
-    font: 14px "montserratregular"; }
 .ad-banner {
   background-color: #e2e2e2;
   text-align: center;
@@ -185,14 +192,14 @@ body {
     font: 24px "montserratbold";
     padding-top: 40px;
     opacity: 0;
-    transition: opacity .8s 1.5s; }
+    transition: opacity .8s 1s; }
   .ad-contact__location {
     font: 16px/140% "montserratregular";
     color: #fefefe;
     position: absolute;
     text-align: left;
     opacity: 0;
-    transition: opacity .8s 1.5s; }
+    transition: opacity .8s 1s; }
     .ad-contact__location:before {
       content: '';
       display: inline-block;
@@ -219,7 +226,7 @@ body {
     height: 580px;
     width: 0;
     position: relative;
-    transition: width 1.5s ease-out; }
+    transition: width 1s ease-out; }
   .ad-contact.animated .ad-page {
     width: 1180px; }
   .ad-contact.animated .ad-contact__location {
@@ -236,7 +243,7 @@ body {
     background-color: rgba(113, 113, 113, 0.3);
     width: 420px;
     box-sizing: border-box;
-    transition: height 1s 2s; }
+    transition: height 1s 1.5s; }
     .ad-contact-form__title {
       color: #fffffe;
       font: 18px "montserratlight";
@@ -261,7 +268,7 @@ body {
   .ad-contact__button {
     border-radius: 35px;
     background-color: rgba(255, 255, 255, 0.2);
-    border: 3px solid #5d5d5e;
+    border: 3px solid transparent;
     color: #3dc5ec;
     width: 245px;
     padding: 13px 0;
@@ -271,7 +278,8 @@ body {
     position: relative;
     outline: none; }
     .ad-contact__button:hover {
-      background-color: transparent; }
+      background-color: transparent;
+      border-color: #5d5d5e; }
     .ad-contact__button:active {
       top: 3px; }
 .ad-team {
@@ -401,10 +409,8 @@ body {
     .scrolled .ad-header .ad-page {
       height: 60px;
       border: none; }
-  .scrolled .ad-nav {
-    padding-top: 10px; }
-    .scrolled .ad-nav__item:after {
-      bottom: 8px; }
+  .scrolled .ad-nav__link {
+    padding-top: 20px; }
   .scrolled .menu-scrolled-logo {
     display: inline-block; }
 

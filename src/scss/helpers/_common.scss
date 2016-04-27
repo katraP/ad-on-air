@@ -29,12 +29,15 @@ body {
 
     .ad-page {
       border-bottom: 2px solid $VIOLET;
-      padding: 10px 0;
       height: 80px;
     }
 
   }
 
+  &-logo {
+    padding-top: 10px;
+    display: inline-block;
+  }
 
 
   &-page {
@@ -45,14 +48,28 @@ body {
 
   &-nav {
     float: right;
-    padding-top: 20px;
-    transition: padding .5s;
+    height: 100%;
+
+    ul {
+      height: 100%;
+    }
 
     &__item {
       display: inline-block;
       margin-left: 55px;
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: $MAIN_FONT;
+      font: 14px $REGULAR;
+      display: block;
+      height: 100%;
+      padding-top:25px;
       position: relative;
-      height: 20px;
+      box-sizing: border-box;
 
       &:after {
         content:'';
@@ -62,16 +79,13 @@ body {
         width: 100%;
         height: 4px;
         bottom: 0;
-        margin-bottom: -28px;
         left:0;
         background-color: #3dc5ec;
         opacity:0;
       }
 
       &.active {
-        .ad-nav__link {
           color: #3dc5ec;
-        }
       }
 
       &:hover {
@@ -79,12 +93,6 @@ body {
           opacity: 1;
         }
       }
-    }
-
-    &__link {
-      text-decoration: none;
-      color: $MAIN_FONT;
-      font: 14px $REGULAR;
     }
   }
 
@@ -197,7 +205,7 @@ body {
       font: 24px $BOLD;
       padding-top: 40px;
       opacity: 0;
-      transition: opacity .8s 1.5s;
+      transition: opacity .8s 1s;
     }
 
     &__location {
@@ -206,7 +214,7 @@ body {
       position: absolute;
       text-align: left;
       opacity:0;
-      transition: opacity .8s 1.5s;
+      transition: opacity .8s 1s;
       &:before {
         content:'';
         display: inline-block;
@@ -239,7 +247,7 @@ body {
       height: 580px;
       width: 0;
       position: relative;
-      transition: width 1.5s ease-out ;
+      transition: width 1s ease-out ;
     }
 
     &.animated {
@@ -271,7 +279,7 @@ body {
       background-color: rgba(113, 113, 113, 0.3);
       width: 420px;
       box-sizing: border-box;
-      transition: height 1s 2s;
+      transition: height 1s 1.5s;
 
       &__title {
         color: #fffffe;
@@ -308,7 +316,7 @@ body {
     &__button {
       border-radius: 35px;
       background-color: rgba(255, 255, 255, 0.2);
-      border: 3px solid #5d5d5e;
+      border: 3px solid transparent;
       color: #3dc5ec;
       width: 245px;
       padding: 13px 0;
@@ -320,6 +328,7 @@ body {
 
       &:hover {
         background-color: transparent;
+        border-color: #5d5d5e;
       }
 
       &:active {
@@ -520,15 +529,11 @@ body {
 
     }
 
-
-
     &-nav {
-      padding-top: 10px;
 
-      &__item:after {
-        bottom: 8px;
+      &__link {
+        padding-top: 20px;
       }
-
     }
   }
 
