@@ -3,6 +3,7 @@
  */
 $(function() {
     var media = '.ad-media';
+    var map = $('.ad-contact');
     var currentBannerTranslate = 0;
     var banner = $('.ad-banner__bg');
     $(window).on('scroll', function() {
@@ -14,6 +15,7 @@ $(function() {
         }
         bannerScroll();
         showMedia();
+        showMap();
     });
 
     function bannerScroll() {
@@ -26,6 +28,11 @@ $(function() {
             $(media).addClass('animated');
         }
     }
+    function showMap() {
+        if($(window).height() + $(window).scrollTop() >= map.offset().top + 400 ) {
+            map.addClass('animated');
+        }
+    }
     showMedia();
-
+    showMap();
 });

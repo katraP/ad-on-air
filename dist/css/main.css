@@ -178,19 +178,21 @@ body {
     opacity: 1; }
 .ad-contact {
   background-color: #232425;
-  text-align: center; }
-  .ad-contact__mask {
-    -webkit-clip-path: inset(100px 50px);
-    clip-path: inset(100px 50px); }
+  text-align: center;
+  height: 580px; }
   .ad-contact__title {
     color: #fefefe;
     font: 24px "montserratbold";
-    padding-top: 40px; }
+    padding-top: 40px;
+    opacity: 0;
+    transition: opacity .8s 1.5s; }
   .ad-contact__location {
     font: 16px/140% "montserratregular";
     color: #fefefe;
     position: absolute;
-    text-align: left; }
+    text-align: left;
+    opacity: 0;
+    transition: opacity .8s 1.5s; }
     .ad-contact__location:before {
       content: '';
       display: inline-block;
@@ -203,31 +205,42 @@ body {
       left: -3px;
       top: 3px; }
     .ad-contact__location.boston {
-      left: 390px;
+      left: 340px;
       top: 310px; }
     .ad-contact__location.kiev {
-      left: 700px;
-      top: 310px; }
+      left: 657px;
+      top: 305px; }
     .ad-contact__location.telaviv {
-      left: 700px;
-      top: 405px; }
+      left: 673px;
+      top: 376px; }
   .ad-contact .ad-page {
     overflow: hidden;
-    background: url("../img/map.png") left top no-repeat transparent;
+    background: url("../img/map.png") center top no-repeat transparent;
     height: 580px;
-    position: relative; }
+    width: 0;
+    position: relative;
+    transition: width 1.5s ease-out; }
+  .ad-contact.animated .ad-page {
+    width: 1180px; }
+  .ad-contact.animated .ad-contact__location {
+    opacity: 1; }
+  .ad-contact.animated .ad-contact-form {
+    height: 100%; }
+  .ad-contact.animated .ad-contact__title {
+    opacity: 1; }
   .ad-contact-form {
+    height: 0;
+    overflow: hidden;
     position: absolute;
     right: 0;
     background-color: rgba(113, 113, 113, 0.3);
-    height: 100%;
     width: 420px;
     box-sizing: border-box;
-    padding-top: 40px;
-    z-index: 4; }
+    transition: height 1s 2s; }
     .ad-contact-form__title {
       color: #fffffe;
-      font: 18px "montserratlight"; }
+      font: 18px "montserratlight";
+      padding-top: 40px; }
     .ad-contact-form input {
       margin-top: 25px; }
     .ad-contact-form textarea.ad-contact__text {

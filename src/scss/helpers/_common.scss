@@ -191,15 +191,13 @@ body {
   &-contact {
     background-color: $DARK_FONT;
     text-align: center;
-
-    &__mask {
-      clip-path: inset(100px 50px);
-    }
-
+    height: 580px;
     &__title {
       color: $WHITE_FONT;
       font: 24px $BOLD;
       padding-top: 40px;
+      opacity: 0;
+      transition: opacity .8s 1.5s;
     }
 
     &__location {
@@ -207,6 +205,8 @@ body {
       color: $WHITE_FONT;
       position: absolute;
       text-align: left;
+      opacity:0;
+      transition: opacity .8s 1.5s;
       &:before {
         content:'';
         display: inline-block;
@@ -220,39 +220,63 @@ body {
         top: 3px;
       }
       &.boston {
-        left: 390px;
+        left: 340px;
         top: 310px;
       }
       &.kiev {
-        left: 700px;
-        top: 310px;
+        left: 657px;
+        top: 305px;
       }
       &.telaviv {
-        left: 700px;
-        top: 405px;
+        left: 673px;
+        top: 376px;
       }
     }
 
     .ad-page {
       overflow: hidden;
-      background: url('../img/map.png') left top no-repeat transparent;
+      background: url('../img/map.png') center top no-repeat transparent;
       height: 580px;
+      width: 0;
       position: relative;
+      transition: width 1.5s ease-out ;
+    }
+
+    &.animated {
+      .ad-page {
+        width: 1180px;
+
+      }
+
+      .ad-contact {
+        &__location {
+          opacity:1;
+        }
+
+        &-form {
+          height: 100%;
+        }
+
+        &__title {
+          opacity:1;
+        }
+      }
     }
 
     &-form {
+      height:0;
+      overflow: hidden;
       position: absolute;
       right:0;
       background-color: rgba(113, 113, 113, 0.3);
-      height: 100%;
       width: 420px;
       box-sizing: border-box;
-      padding-top: 40px;
-      z-index: 4;
+      transition: height 1s 2s;
 
       &__title {
         color: #fffffe;
         font: 18px $LIGHT;
+        padding-top: 40px;
       }
       input {
         margin-top: 25px;
