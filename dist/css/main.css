@@ -272,7 +272,7 @@ body {
     color: #3dc5ec;
     width: 245px;
     padding: 13px 0;
-    font: 24px "montserratregular";
+    font: 23px "montserratregular";
     cursor: pointer;
     transition: background-color .3s;
     position: relative;
@@ -424,3 +424,25 @@ body {
   color: #474747;
   opacity: 0;
   transition: opacity 1.2s .3s; }
+
+.wrap {
+  position: relative; }
+
+.main {
+  background: url("../img/map.png") center top no-repeat transparent;
+  height: 580px;
+  width: 1180px; }
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 580px;
+  width: 40px;
+  background: url("../img/map-mask.png") 0 top no-repeat transparent;
+  transition: all 3s; }
+  .mask.active {
+    background-position: -1180px top;
+    -webkit-transform: translate(1180px, 0);
+    transform: translate(1180px, 0); }
