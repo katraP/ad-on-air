@@ -10,6 +10,7 @@
     <header class="ad-header">
         <div class="ad-page clearfix">
             <a href="#" class="ad-logo">
+            <a href="#" class="ad-logo">
                 <img class="logo-general" src="./dist/img/logo.png" alt=""/>
                 <img class="menu-scrolled-logo" src="dist/img/logo_small.png" alt=""/>
             </a>
@@ -36,7 +37,7 @@
     </header>
     <section class="ad-banner">
         <div class="ad-page">
-            <img class="ad-banner__bg" src="dist/img/banner_bg.png" alt=""/>
+            <div class="ad-banner__bg"></div>
             <div class="ad-banner-content">
                 <img class="ad-banner__title" src="dist/img/banner_title.png" alt=""/>
                 <div class="ad-banner__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,
@@ -85,7 +86,14 @@
     </section>
     <section class="ad-contact">
         <div class="ad-page">
-
+            <svg width="0" height="0" class="ad-contact-svg">
+                <defs>
+                    <clipPath id="myClip">
+                        <rect width="100" height="580">
+                    </clipPath>
+                </defs>
+            </svg>
+            <img src="dist/img/map-mask.png" class="ad-contact__mask" alt=""/>
             <div class="ad-contact-form">
                 <div class="ad-contact-form__title">Get in touch</div>
                 <form action="">
