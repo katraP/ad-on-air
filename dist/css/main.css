@@ -146,7 +146,7 @@ body {
 .ad-media {
   padding: 60px 0 120px; }
   .ad-media__title {
-    font: 24px "montserratbold";
+    font: 24px "montserratsemi_bold";
     color: #474747;
     text-align: center; }
   .ad-media-list {
@@ -187,19 +187,28 @@ body {
   background-color: #232425;
   text-align: center;
   height: 580px; }
+  .ad-contact__mask {
+    position: absolute;
+    top: 0;
+    -webkit-transform: translate(-30px, 0);
+    transform: translate(-30px, 0);
+    z-index: 2;
+    height: 580px;
+    width: 25px;
+    background: url("../img/map-mask.png") 23px top no-repeat transparent;
+    transition: all 4s; }
   .ad-contact__title {
     color: #fefefe;
-    font: 24px "montserratbold";
+    font: 24px "montserratsemi_bold";
     padding-top: 40px;
     opacity: 0;
-    transition: opacity .8s 1s; }
+    transition: opacity .8s 1.3s; }
   .ad-contact__location {
     font: 16px/140% "montserratregular";
     color: #fefefe;
     position: absolute;
     text-align: left;
-    opacity: 0;
-    transition: opacity .8s 1s; }
+    opacity: 0; }
     .ad-contact__location:before {
       content: '';
       display: inline-block;
@@ -213,37 +222,42 @@ body {
       top: 3px; }
     .ad-contact__location.boston {
       left: 340px;
-      top: 310px; }
+      top: 310px;
+      transition: opacity 1s .8s; }
     .ad-contact__location.kiev {
       left: 657px;
-      top: 305px; }
+      top: 305px;
+      transition: opacity 1s 1.4s; }
     .ad-contact__location.telaviv {
       left: 673px;
-      top: 376px; }
+      top: 376px;
+      transition: opacity 1s 1.4s; }
   .ad-contact .ad-page {
     overflow: hidden;
     background: url("../img/map.png") center top no-repeat transparent;
     height: 580px;
-    width: 0;
-    position: relative;
-    transition: width 1s ease-out; }
-  .ad-contact.animated .ad-page {
-    width: 1180px; }
+    width: 1180px;
+    position: relative; }
   .ad-contact.animated .ad-contact__location {
     opacity: 1; }
   .ad-contact.animated .ad-contact-form {
     height: 100%; }
   .ad-contact.animated .ad-contact__title {
     opacity: 1; }
+  .ad-contact.animated .ad-contact__mask {
+    background-position: -1220px top;
+    -webkit-transform: translate(1220px, 0);
+    transform: translate(1220px, 0); }
   .ad-contact-form {
     height: 0;
     overflow: hidden;
     position: absolute;
+    z-index: 3;
     right: 0;
     background-color: rgba(113, 113, 113, 0.3);
     width: 420px;
     box-sizing: border-box;
-    transition: height 1s 1.5s; }
+    transition: height 1s 2s; }
     .ad-contact-form__title {
       color: #fffffe;
       font: 18px "montserratlight";
@@ -253,9 +267,6 @@ body {
     .ad-contact-form textarea.ad-contact__text {
       margin-top: 25px;
       height: 160px; }
-  .ad-contact__title {
-    color: #fefefe;
-    font: 24px "montserratbold"; }
   .ad-contact__text {
     border: 1px solid #8b8b8c;
     background-color: rgba(35, 36, 37, 0.3);
@@ -272,11 +283,15 @@ body {
     color: #3dc5ec;
     width: 245px;
     padding: 13px 0;
-    font: 23px "montserratregular";
+    font: 23px "montserratsemi_bold";
     cursor: pointer;
     transition: background-color .3s;
     position: relative;
     outline: none; }
+    .ad-contact__button--clicked {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkExNzkxNkI1MEQyNTExRTZCQTNFQTVDN0REQzM2NjNCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkExNzkxNkI2MEQyNTExRTZCQTNFQTVDN0REQzM2NjNCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QTE3OTE2QjMwRDI1MTFFNkJBM0VBNUM3RERDMzY2M0IiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QTE3OTE2QjQwRDI1MTFFNkJBM0VBNUM3RERDMzY2M0IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5aT+QKAAAC9klEQVR42ryW/WuOURjH7/vx9JSMPPJ4+cHbsGmWpKyRiVF7oZ6ybCZresyP2kpN/AGIlF+m5Fm0TVvJVoyfsEyMMC00bSy2KG01m6YI873qe+q4u1/OM81Vn+63c67vuc59znUdO+/hiBVgNsgDxWAzWA3m8tsX0A8egdvgAZj0deYjGAIV4ATIsMysD5wEjeC3l1M3WwG6wBWKDYKzoAgsBTPBHJDFyM+wTQb7dNGHUYQyfddBDAwxwmbwKyC6GaCcES4B4ngPp9kzwh3gDsVugWzQZCBmsU0T+0jf+fS100swE7SBCKgDcTBupW7j7FtHX630/ZegXBvAbNAOqg2j8otWfNykz0alpQQrQQ7/2YF/FNNFK+hzIzioBG0uDLHjYEzrVAA+kgIf517txuhT+bZllW7FzX0u65Xgp9bhE1jM+yFuCTfzayerd4DvtkmEu/ihxSHmtIjhVEZcpraZ98UiuIkP91w6HwbDjOCQj0hQuw5ec8Na2nrl0lD20wKDqILaKd+ZEmGUDyPW9Nkwr1F9409a/8FEcJT3sWnUUb5HRfAtH7K0Buu4VdKn4HwR++Zo75Tv/hCLp0rcyqTcyP58qm0bE4tyAUnfY46iIPY4xEotVqalur3gGpgHboBLYGGA2HrwHGwAL0FC+21lajXLQyendTko5YevvD8CvoMq8B7Ug92cNpuFeAu4CJ6w6PaAQi1FltK3aHSqAiybNcn0JvM9oY18GTjFqMM+EUqWusCc+Y3vZoHX9CHJIammUI4F3cx3SY5e2QewH6wCteCutmcnOI2nOdBqTcymLxF7AS47jxhrwDOO6jw46nUQMtxu50ANByXlqddZ8d8wkh9sKJU6bQpiaexbQ1/lSsztTCMrsoSjirNhwud054wqwT5x+ihh1Q88l8r0XuUSt1jPWlhRZBF85nvZKmtBPtinJYpunhx6UzkIh7l6a1PIOANMGvVetdU2OOrLVG1nxsnlqSCmVYF3kkGYYTqCFtofAQYAQpK9sq+XsCsAAAAASUVORK5CYII=);
+      background-position: 32px 12px;
+      background-repeat: no-repeat; }
     .ad-contact__button:hover {
       background-color: transparent;
       border-color: #5d5d5e; }
@@ -288,7 +303,7 @@ body {
   padding: 40px 0 10px; }
   .ad-team__title {
     color: #fefefe;
-    font: 24px "montserratbold"; }
+    font: 24px "montserratsemi_bold"; }
     .ad-team__title-secondary {
       color: #fefefe;
       font: 16px/140% "montserratregular";
@@ -311,7 +326,7 @@ body {
     padding: 0;
     width: 1180px; }
   .ad-event__title {
-    font: 24px "montserratlight";
+    font: 24px "montserratsemi_bold";
     color: #474747; }
   .ad-event-block {
     width: 50%;
@@ -401,7 +416,7 @@ body {
   .scrolled .ad-header {
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 4;
     width: 100%;
     background-color: #f9f9f9;
     transition: top .5s;
