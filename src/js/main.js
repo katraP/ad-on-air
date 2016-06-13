@@ -3,19 +3,20 @@
  */
 $(function() {
     var anchorMap = {
-        l1: 'banner',
+        l1: 'wall',
         l2: 'media',
         l3: 'contact',
         l4: 'team',
         l5: 'event'
     }
 
-    var media = '.ad-media';
-    var map = $('.ad-contact');
+    var media = '.cl-media';
+    var map = $('.cl-contact');
     var currentBannerTranslate = 0;
-    var banner = $('.ad-banner__bg');
-    var menuLink = $('.ad-nav__link');
-    var contactFormBut = $('.ad-contact__button');
+    var banner = $('.cl-wall__bg');
+    var menuLink = $('.cl-nav__link');
+    var contactForm = $('.cl-contact-form');
+    var contactFormBut = $('.cl-contact__button');
 
     $(window).on('scroll', function() {
         menuScroll();
@@ -55,23 +56,41 @@ $(function() {
             var offsetTop = 0;
         }
         else {
-            var offsetTop = $('.ad-'+anchorMap[type]).offset().top - 40;
+            var offsetTop = $('.cl-'+anchorMap[type]).offset().top - 40;
         }
         $('html, body').animate({
             scrollTop: offsetTop
         }, 600);
     }
-    function submitForm(e) {
-        e.preventDefault();
-        contactFormBut.addClass('ad-contact__button--clicked').val('Success!');
-    }
 
+    function initFormValidation() {
+        contactForm.find('.cl-form').validate({
+            rules: {
+                email: 'required',
+                name: 'required'
+            },
+            errorElement: 'span',
+            onkeyup: false,
+            focusCleanup: true,
+            focusInvalid: false,
+            onfocusout: function(element) {
+                console.log('dsdsds');
+                $(element).valid();
+            },
+            submitHandler: function(form, e) {
+                e.preventDefault();
+                contactForm.addClass('cl-contact-form--submitted');
+            },
+            errorClass: 'invalid-item'
+        });
+    }
 
     menuLink.on('click', function(e) {
         animateMenu(e, this);
     });
-    contactFormBut.on('click', submitForm);
+
     menuScroll();
     showMedia();
     showMap();
+    initFormValidation();
 });
